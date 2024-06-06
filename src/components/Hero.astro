@@ -1,0 +1,63 @@
+---
+import Whatsapp from "@/components/icons/Whatsapp.astro";
+import Mail from "@/components/icons/Mail.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import CarlosIcon from "@/components/CarlosIcon.astro";
+
+const hours = new Date().getHours();
+let textoBienvenida;
+
+if (hours <= 12) {
+  textoBienvenida = "Buenos días";
+} else if (hours >= 18) {
+  textoBienvenida = "Buenas tardes";
+} else if (hours >= 20) {
+  textoBienvenida = "Buenas noches";
+}
+---
+
+<div class="flex max-sm:flex-wrap justify-center align-center">
+  <div>
+    <h1 class="font-bold tracking-tight text-[2rem] text-pretty">
+      {textoBienvenida}
+      <br />
+      Bienvenidos a "ASESORIAS M Y F "
+      <br />
+      Profesionalismo en el que puedes confiar
+    </h1>
+    <p class="mt-6 text-x [&>strong]:font-semibold text-pretty">
+      Somos una compañía con especialización en el área de Administración y
+      Finanzas para empresas, de manera externa.
+    </p>
+
+    <p class="mt-6 text-x [&>strong]:font-semibold text-pretty">
+      Nuestra compañía te ayuda a externalizar de manera ordenada, segura y
+      confiable procesos internos de tu empresa. Nosotros te ofrecemos servicios
+      de: Contabilidad Conciliaciones bancarias, reportería contable, estados
+      financieros. Recursos Humanos Preparación de contratos, anexos, calculo de
+      finiquitos, calculo y reporte mensual de remuneraciones. Control de
+      Gestión Reportería de gestión empresarial, ejecución y preparación de
+      procesos internos que ayudan a la optimización de tu empresa. Finanzas,
+      Presentaciones a entes fiscalizadores TGR-DT-SII-CMF, entre otros.
+    </p>
+    <nav class="flex flex-wrap gap-4 mt-8">
+      <SocialPill
+        href="https://wa.me/56959598795?text=Hola M&F, necesito ayuda con mis finanzas."
+      >
+        <Whatsapp class="size-4" />
+        Whatsapp
+      </SocialPill>
+      <SocialPill href="mailto:fsm@asesoriasmyf.cl">
+        <Mail class="size-4" />
+        Correo Electronico
+      </SocialPill>
+    </nav>
+  </div>
+  <div class="flex justify-center max-sm:mt-6">
+    <img
+      src="/image1.png"
+      alt="Asesorias M&F"
+      class="rounded-lg w-full min-w-[400px] max-w-[400px] object-contain"
+    />
+  </div>
+</div>

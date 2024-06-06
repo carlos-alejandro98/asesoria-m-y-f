@@ -1,0 +1,128 @@
+---
+const navItems = [
+    {
+        title: "Nosotros",
+        label: "nosotros",
+        url: "/#nosotros",
+    },
+    {
+        title: "Cerificados",
+        label: "cerificados",
+        url: "/#cerificados",
+    },
+];
+---
+
+<header>
+    <nav
+        class="flex flex-wrap
+        fixed
+        top-0
+        left-0
+        right-0
+        m-auto
+        items-center
+        w-full
+        py-4
+        md:py-0
+        px-4
+        z-50
+        bg-transparent
+        lg:max-w-3xl md:max-w-2xl"
+    >
+        <div></div>
+
+        <!-- Logo Menú Mobile -->
+        <label>
+            <div
+                class="w-9 h-10 cursor-pointer md:hidden flex flex-col items-center justify-center"
+            >
+                <input id="menu-button" class="hidden peer" type="checkbox" />
+                <div
+                    class="w-[50%] h-[2px] bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:rotate-[-45deg]"
+                >
+                </div>
+                <div
+                    class="w-[50%] h-[2px] bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden"
+                >
+                </div>
+                <div
+                    class="w-[50%] h-[2px] bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem] peer-checked:rotate-[45deg]"
+                >
+                </div>
+            </div>
+        </label>
+
+        <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+            <ul
+                class="pt-4
+                md:flex
+                md:justify-between
+                md:pt-0"
+            >
+                {
+                    navItems.map((link) => (
+                        <>
+                            <li>
+                                <a
+                                    class="md:px-3 py-2 block"
+                                    href={link.url}
+                                    aria-label={link.label}
+                                >
+                                    {link.title}
+                                </a>
+                            </li>
+                        </>
+                    ))
+                }
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const button = document.querySelector("#menu-button");
+    const menu = document.querySelector("#menu");
+
+    if (button !== null && menu !== null) {
+        button.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    }
+</script>
+
+<style>
+    nav {
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+        font-size: 14px;
+        color: black;
+        justify-content: center;
+    }
+
+    html.dark nav {
+        color: white;
+    }
+
+    @keyframes nav-shadown {
+        to {
+            @apply shadow-lg ring-1 backdrop-blur bg-transparent ring-white/10;
+            height: 40px;
+            font-size: 13px;
+            margin-top: 3px;
+            width: 30rem;
+            border-radius: 50px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        nav {
+            background-color: transparent;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            color: white !important;
+            animation: none;
+        }
+    }
+</style>

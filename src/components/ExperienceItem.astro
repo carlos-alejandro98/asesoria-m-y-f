@@ -1,0 +1,28 @@
+---
+import Check from './icons/Check.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!-- Item #1 -->
+<div class="relative pl-8 sm:pl-5 py-6 group">
+  <div
+    class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px dark:before:bg-slate-300 before:bg-black sm:before:ml-0 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-color-carlos after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-0 after:-translate-x-1/2 after:translate-y-1.5"
+  >
+    <div class="text-xl font-bold flex items-center">
+      {title}
+      <Check />
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .imagen-empresa{
+    height: 4rem;
+  }
+</style>

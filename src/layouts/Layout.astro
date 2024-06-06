@@ -1,0 +1,135 @@
+---
+import "@fontsource-variable/onest";
+
+import Header2 from "@/components/Header2.astro";
+import Footer from "@/components/Footer.astro";
+import Lamp from "@/components/Lamp.astro";
+import { ViewTransitions } from "astro:transitions";
+import Stars from "@/components/Stars.astro";
+import Clouds from "@/components/Clouds.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+
+  <body
+    class="relative antialiased text-black dark:text-white dark:bg-radial-gradient"
+  >
+    <!--<Header2 />
+    <Stars />
+    <Clouds />
+    <Lamp />
+    -->
+    <slot />
+    <Footer />
+    <style is:global>
+      @import url(https://unpkg.com/css-peeps@1/css-peeps.compat.css);
+
+      :root {
+        color-scheme: light dark;
+      }
+
+      html {
+        font-family: "Onest Variable", system-ui, sans-serif;
+        scroll-behavior: smooth;
+        scrollbar-color: #09f white;
+        scrollbar-width: thin;
+      }
+
+      body {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(208, 206, 217, 1) 0%,
+          rgba(228, 223, 218, 1) 0%,
+          rgba(187, 131, 39, 1) 100%,
+          rgba(0, 212, 255, 1) 100%
+        );
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      #header-nav {
+        animation: blur linear both 0.5s;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+
+      @keyframes blur {
+        to {
+          backdrop-filter: blur(20px);
+          border-width: 1px;
+          border-color: rgba(0, 0, 0);
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background-color: rgb(229, 229, 229);
+          border-radius: 9999px;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        @keyframes blur {
+          from {
+            border: 0px;
+          }
+          to {
+            box-shadow:
+              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+              0px 0px 0 1px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-width: 1px;
+            border-color: rgba(0, 0, 0);
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 9999px;
+          }
+        }
+      }
+      .font-degrade {
+        background: linear-gradient(45deg, #2196f3 50%, #010c14 100%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+    </style>
+  </body>
+</html>

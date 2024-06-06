@@ -1,0 +1,143 @@
+---
+const dataCard = [
+    {
+        title: "Node JS",
+        subtitle: "Certificado obtenido en la plataforma de Escalab",
+        imagen: "/tecnology/nodejs.png",
+        class: "bg-[#6cc24a]",
+        link: "https://www.credly.com/badges/2d66a021-6a19-46de-886c-a98ad61f9c4e?source=linked_in_profile"
+    },
+    {
+        title: "React JS",
+        subtitle: "Certificado obtenido en la plataforma de Escalab",
+        imagen: "/tecnology/react-black.png",
+        class: "bg-[#61dafb]",
+        link: "https://www.credly.com/badges/73362757-f67b-4e5d-9c12-064533218f6e?source=linked_in_profile"
+    },
+    {
+        title: "Liferay",
+        subtitle: "Liferay DXP 7.3 Front-End Developer (ID: 22370976)",
+        imagen: "/tecnology/liferay-dark.png",
+        class: "bg-[#0B63CE]",
+        link: "certificados/liferay-carlos-abarca.jpg"
+    },
+    {
+        title: "React Native",
+        subtitle: "Certificado obtenido en la plataforma de Udemy",
+        imagen: "/tecnology/react-native.svg",
+        class: "bg-[#0B63CE]",
+        link: "https://www.udemy.com/certificate/UC-f3ff4523-fccd-4ba2-a246-fd1b1288f70e/"
+    },
+    {
+        title: "Jquery",
+        subtitle: "Certificado obtenido en la plataforma de Udemy",
+        imagen: "/tecnology/jquery.webp",
+        class: "bg-[#0769AD]",
+        link: "https://www.udemy.com/certificate/UC-86b4a2a5-2805-4aa8-92b5-bc43311bfce3/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email"
+    },
+    {
+        title: "Docker",
+        subtitle: "Certificado obtenido en la plataforma de Udemy",
+        imagen: "/tecnology/docker.png",
+        class: "bg-[#0db7ed]",
+        link: "https://www.udemy.com/certificate/UC-86b4a2a5-2805-4aa8-92b5-bc43311bfce3/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email"
+    },
+];
+---
+<div class="flex gap-4 flex-wrap">
+    {
+        dataCard.map((certificado) => (
+            <div class={`card w-[245px] max-[535px]:w-full ${certificado.class}`} onclick={`window.open('${certificado.link}','_blank');`}>
+                <div class="flex items-center justify-center mt-4">
+                    <img src={certificado.imagen} alt={certificado.title} width="170" height="70" class="object-contain logo-certificado" />
+                </div>
+                <div class="card-info">
+                    <div class="card-text">
+                        <p class="text-title">{certificado.title}</p>
+                        <p class="text-subtitle text-pretty">{certificado.subtitle}</p>
+                    </div>
+                    <div class="card-icon">
+                        <svg class="icon" viewBox="0 0 28 25">
+                            <path d="M13.145 2.13l1.94-1.867 12.178 12-12.178 12-1.94-1.867 8.931-8.8H.737V10.93h21.339z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        ))
+    }
+    <style>
+        .card {
+            height: 354px;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            animation: name-of-animation 2s;
+        }
+
+        .card-info {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            padding: 1rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .logo-certificado{
+            height: 100px !important;
+        }
+
+        .card-icon {
+            opacity: 0;
+            transform: translateX(-20%);
+            width: 2em;
+            height: 2em;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            left: -0.1em;
+            top: -3px;
+        }
+
+        .icon {
+            --size: 28px;
+            width: var(--size);
+            height: var(--size);
+            filter: invert(1);
+            margin-top: 1px;
+            margin-left: -5px;
+        }
+
+        .card-text p {
+            line-height: 140%;
+        }
+
+        .text-title {
+            font-weight: 700;
+            font-size: 2rem;
+            color: rgb(255, 255, 255);
+        }
+
+        .text-subtitle {
+            color: rgb(255, 255, 255);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .card:hover .card-icon {
+            opacity: 1;
+            transform: translateX(20%);
+        }
+
+        @keyframes name-of-animation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</div>

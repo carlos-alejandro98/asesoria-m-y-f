@@ -1,0 +1,39 @@
+---
+const skillsFront = Astro.props.skillsFront;
+---
+
+<div class="brands-list">
+    <div class="wrapper">
+        {Object.values(skillsFront).map((skill, index) => (
+            <img src={typeof skill === 'string' ? skill : ''} alt={`image ${index + 1}`} />
+        ))}
+    </div>
+</div>
+
+<style>
+    .brands-list {
+        overflow: hidden;
+        backdrop-filter: blur(60px);
+        background: transparent;
+    }
+
+    @keyframes scrollCarousel {
+        to {
+            translate: calc(-5 * 13rem);
+        }
+    }
+
+    .wrapper {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 13rem;
+        justify-items: stretch;
+        animation: scrollCarousel 10s linear infinite;
+    }
+
+    .brands-list .wrapper img {
+        height: 5rem;
+        aspect-ratio: 9 / 10 !important;
+        object-fit: contain;
+    }
+</style>

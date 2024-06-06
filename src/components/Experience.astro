@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const experiences = [
+    {
+        title: "Normatica laboral vigente",
+    },
+    {
+        title: "Preparaciones en reformas tributarias",
+    },
+    {
+        title: "Control de gestión",
+    },
+    {
+        title: "Implementación de procesos internos",
+    },
+];
+---
+<div class="w-full max-w-3xl">
+
+  <div class="-my-6">
+
+    {
+      experiences.map((experience) => (
+        <ExperienceItem {...experience} />
+      ))
+    } 
+
+  </div>
+
+</div>
